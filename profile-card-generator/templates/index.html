@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>User Profile Card Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+    User Profile Card Generator
+</nav>
+
+<div class="container">
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <textarea
+            name="bio"
+            rows="5"
+            placeholder="Enter your bio"
+            required
+        ></textarea>
+
+        <input
+            type="text"
+            name="image"
+            placeholder="Paste image URL"
+            required
+        >
+
+        <button type="submit">
+            Generate Profile
+        </button>
+
+    </form>
+
+    {% if profile %}
+
+    <div class="profile-card">
+
+        <img
+            src="{{ profile.image }}"
+            alt="Profile Image"
+            onerror="this.src='https://i.pravatar.cc/300?img=47'"
+        >
+
+        <h2>{{ profile.name }}</h2>
+
+        <p>{{ profile.bio }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
