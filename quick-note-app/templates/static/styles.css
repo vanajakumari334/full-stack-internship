@@ -1,0 +1,83 @@
+* {
+.note-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.note-form input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.note-form button {
+    padding: 15px 25px;
+    border: none;
+    background: #111827;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.note-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.note-card h3 {
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.note-card p {
+    margin-bottom: 15px;
+}
+
+.note-card small {
+    color: gray;
+}
+
+.delete-btn {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    background: red;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+footer {
+    margin-top: 50px;
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+@media(max-width:768px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .note-form {
+        flex-direction: column;
+    }
+
+    .note-form button {
+        width: 100%;
+    }
+}

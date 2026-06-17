@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <title>Advanced Quick Notes</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<nav>
+    Quick Notes Application
+</nav>
+
+<section class="hero">
+
+    <h1>Save Your Notes Easily</h1>
+
+    <p>
+        Responsive Flask Notes Application with Database
+    </p>
+
+</section>
+
+<div class="container">
+
+    <form method="POST" class="note-form">
+
+        <input
+            type="text"
+            name="note"
+            placeholder="Write your note here..."
+            required
+        >
+
+        <button type="submit">
+            Save Note
+        </button>
+
+    </form>
+
+
+    <div class="notes-grid">
+
+        {% for note in notes %}
+
+        <div class="note-card">
+
+            <h3>My Note</h3>
+
+            <p>{{ note[1] }}</p>
+
+            <small>
+                Created: {{ note[2] }}
+            </small>
+
+            <br>
+
+            <a href="/delete/{{ note[0] }}"
+               class="delete-btn">
+               Delete
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Quick Notes App | Flask Project</p>
+</footer>
+
+</body>
+</html>
