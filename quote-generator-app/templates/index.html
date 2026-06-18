@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Motivational Quote Hub</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+    ✨ Motivational Quote Hub
+</nav>
+
+<section class="hero">
+
+    <h1>
+        Daily Inspiration Generator
+    </h1>
+
+    <p>
+        Generate motivational quotes and save inspiration history.
+    </p>
+
+    <a href="/generate">
+
+        <button>
+            Generate Quote
+        </button>
+
+    </a>
+
+</section>
+
+<div class="container">
+
+    <h2>
+        Quote History
+    </h2>
+
+    <div class="quote-grid">
+
+        {% for item in history %}
+
+        <div class="quote-card">
+
+            <span class="category">
+                {{ item[3] }}
+            </span>
+
+            <p class="quote">
+
+                "{{ item[1] }}"
+
+            </p>
+
+            <h3>
+
+                — {{ item[2] }}
+
+            </h3>
+
+            <button
+                onclick="copyQuote('{{ item[1] }}')">
+
+                Copy Quote
+
+            </button>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+    <p>
+        © 2026 Motivational Quote Hub
+    </p>
+</footer>
+
+<script>
+
+function copyQuote(text){
+
+    navigator.clipboard.writeText(text)
+
+    alert("Quote Copied!")
+}
+
+</script>
+
+</body>
+</html>
