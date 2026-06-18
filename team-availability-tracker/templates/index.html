@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Smart Team Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+    🚀 Smart Team Dashboard
+</nav>
+
+<section class="hero">
+
+    <h1>
+        Team Collaboration Dashboard
+    </h1>
+
+    <p>
+        Manage employee availability and productivity.
+    </p>
+
+</section>
+
+<div class="stats">
+
+    <div class="stat-card">
+
+        <h2>{{ available }}</h2>
+
+        <p>Available</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h2>{{ unavailable }}</h2>
+
+        <p>Unavailable</p>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <form class="search-form">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search employee..."
+            value="{{ search }}"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+    <div class="team-grid">
+
+        {% for member in members %}
+
+        <div class="team-card">
+
+            <img
+                src="{{ member[4] }}"
+                alt="Employee"
+            >
+
+            <h2>
+                {{ member[1] }}
+            </h2>
+
+            <p>
+                {{ member[2] }}
+            </p>
+
+            <span class="department">
+                {{ member[3] }}
+            </span>
+
+            {% if member[5] == 1 %}
+
+            <div class="available">
+                🟢 Available
+            </div>
+
+            {% else %}
+
+            <div class="unavailable">
+                🔴 Unavailable
+            </div>
+
+            {% endif %}
+
+            <div class="progress">
+
+                <div class="progress-bar"></div>
+
+            </div>
+
+            <a href="/toggle/{{ member[0] }}">
+
+                <button>
+
+                    Toggle Status
+
+                </button>
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+    <p>
+        © 2026 Smart Team Dashboard
+    </p>
+</footer>
+
+</body>
+</html>
