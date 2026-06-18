@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Coffee Rating App</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial;
+            background:#f4f4f4;
+        }
+
+        nav{
+            background:#3b2f2f;
+            color:white;
+            text-align:center;
+            padding:18px;
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+            padding:40px 20px;
+        }
+
+        .coffee-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .coffee-card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .coffee-card img{
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            object-fit:cover;
+            margin:10px auto;
+            display:block;
+            border:3px solid #6f4e37;
+        }
+
+        .coffee-card h2{
+            margin:15px 0;
+            color:#3b2f2f;
+        }
+
+        .coffee-card p{
+            margin-bottom:15px;
+            color:#555;
+        }
+
+        .coffee-card button{
+            padding:12px 20px;
+            background:#3b2f2f;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<nav>
+    ☕ Coffee Rating Application
+</nav>
+
+<div class="container">
+
+    <div class="coffee-grid">
+
+        {% for coffee in coffees %}
+
+        <div class="coffee-card">
+
+            <img src="{{ coffee[3] }}">
+
+            <h2>{{ coffee[1] }}</h2>
+
+            <p>{{ coffee[2] }}</p>
+
+            <h3>Votes: {{ coffee[4] }}</h3>
+
+            <a href="/vote/{{ coffee[0] }}">
+
+                <button>
+                    Vote ☕
+                </button>
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>
